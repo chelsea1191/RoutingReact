@@ -1,35 +1,30 @@
-import React from "react";
+import React from "react"
+import Spinner from 'react-bootstrap/Spinner'
+import Pages from './Pages'
 
-export default function Users({ users }) {
-  console.log(users.users);
-  return <div>Users</div>;
-}
 
-// <div>
-//       {
-//         !!company && <Company company={ company } />
-//       }
-//       <h1>Companies</h1>
-//       <ul>
-//         {
-//           companies.map( company => {
-//             return (
-//               <li key={company.id} >
-//               <a href={`#${qs.stringify({ view: 'companies', id: company.id})}`}>{ company.name} </a></li>
-//             )
-//           })
-//         }
-//       </ul>
-//     </div>
-//   )
-// }
+export default function Users({pageNumber, users, allUsers}) {
+  return (
 
-// <ul>
-// {
-//   users.map(user => {
-//     return (
-//       <li></li>
-//     )
-//   })
-// }
-// </ul>
+    <div>
+      <Pages allUsers={allUsers} pageNumber={pageNumber} />
+    <div>
+    <h2>Users ({allUsers.count} in total)</h2>
+    </div>
+    <div className="list">
+    <ul>
+      {
+        users && users ? (
+          users.map( user =>
+          <li key={user.id}>{user.fullName}</li>
+          )
+        ) : (
+          <Spinner animation="border" />
+        )
+      }
+    </ul>
+    </div>
+    </div>
+    )
+  }
+

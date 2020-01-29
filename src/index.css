@@ -15,5 +15,18 @@ code {
   display: flex;
   justify-content: space-evenly;
   margin: 10px;
-  background-color: gray;
+  background-color: lightcyan;
+  height: 50px;
+  font-size: x-large;
 }
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+ .pagination {
+   display: flex;
+   justify-content: space-evenly;
+ }
+
+
